@@ -1,4 +1,48 @@
 .div-gral {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: row;
 }
+
+.menuIngreso{
+
+    position: absolute;
+    width: 457px;
+    height: 599px;
+    left: 528px;
+    top: 191px;
+    
+    background: rgba(30, 30, 30, 0.5);
+    mix-blend-mode: normal;
+    border-radius: 30px;
+}
+
+.selecTable {
+    position: absolute;
+    width: 284px;
+    height: 235px;
+    left: 87px;
+    top: 182px;
+
+}
+
+.selecTable a{
+    position: absolute;
+    left: 16.2%;
+    right: 16.2%;
+    top: 15.15%;
+    bottom: 16.67%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
