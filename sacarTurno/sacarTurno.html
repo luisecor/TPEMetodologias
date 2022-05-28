@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sacarTurno.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div-gral">
+        <form class="form-filtros was-validated">
+
+            <div class="mb-3">
+                <label class="form-label">DNI PACIENTE</label>
+                <input type="number" class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></input>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Especialidad</label>
+                <select class="form-select" required aria-label="select example" id="select-especialidad">
+                  <option value="">Seleccione especialidad</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Medico</label>
+                <select class="form-select" required aria-label="select example" id="select-medicos">
+                    <option value="">Seleccione Medico<mat-slider tickInterval="auto"></mat-slider></option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Obra Social</label>
+                <select class="form-select" required aria-label="select example" id="select-obrasSociales">
+                    <option value="sinObra">Sin obra social</option>
+                </select>
+            </div>
+            
+            
+            <div class="mb-3">
+                <label class="form-label">Rango de fechas</label>
+                <input type="date" name="" id="" value="2022-08-02">
+                <input type="date" name="" id="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mañana o tarde</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="" name="rangoDia" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Mañana
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="" name="rangoDia" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Tarde
+                    </label>
+                </div>
+            </div>
+            <p id="avisoDiferencial"></p>
+            <button type="submit" class="btn btn-info">Buscar Turno</button>
+        </form>
+        <div class="div-listado-turnos">
+            <h1>Turnos Disponibles</h1>
+            <div class="turno">
+                <p>27/05/2022 a las 16:00</p>
+                <input name="asd" type="radio">
+            </div>
+            <div class="turno">
+                <p>27/05/2022 a las 16:00</p>
+                <input name="asd" type="radio">
+            </div>
+            <div class="turno">
+                <p>27/05/2022 a las 16:00</p>
+                <input name="asd" type="radio">
+            </div>
+            <div class="turno">
+                <p>27/05/2022 a las 16:00</p>
+                <input name="asd" type="radio">
+            </div>
+        </div>
+    </div>
+    <script src="sacarTurno.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
