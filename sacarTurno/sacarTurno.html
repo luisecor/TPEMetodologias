@@ -13,8 +13,8 @@
         <form class="form-filtros was-validated">
 
             <div class="mb-3">
-                <label class="form-label">DNI PACIENTE</label>
-                <input type="number" class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></input>
+                <label class="form-label">DNI Paciente</label>
+                <input type="number" class="form-control is-invalid" id="validationTextarea" placeholder="Ingrese DNI del paciente" required></input>
             </div>
             <div class="mb-3">
                 <label class="form-label">Especialidad</label>
@@ -38,19 +38,19 @@
             
             <div class="mb-3">
                 <label class="form-label">Rango de fechas</label>
-                <input type="date" name="" id="" value="2022-08-02">
-                <input type="date" name="" id="">
+                <input type="date" name="" id="fechaInicial">
+                <input type="date" name="" id="fechaFinal">
             </div>
             <div class="mb-3">
                 <label class="form-label">Mañana o tarde</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" value="" name="rangoDia" id="flexCheckDefault">
+                    <input class="form-check-input" type="radio" value="mañana" name="rangoDia" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Mañana
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" value="" name="rangoDia" id="flexCheckChecked" checked>
+                    <input class="form-check-input" type="radio" value="tarde" name="rangoDia" id="flexCheckChecked" checked>
                     <label class="form-check-label" for="flexCheckChecked">
                         Tarde
                     </label>
@@ -61,22 +61,6 @@
         </form>
         <div class="div-listado-turnos">
             <h1>Turnos Disponibles</h1>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
         </div>
     </div>
     <script src="sacarTurno.js"></script>
