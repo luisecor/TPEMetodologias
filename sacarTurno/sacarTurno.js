@@ -185,6 +185,15 @@ document.getElementById("select-especialidad").addEventListener("change", buscar
 document.getElementById("select-medicos").addEventListener("change", atiendeObraSocial);
 document.getElementById("select-obrasSociales").addEventListener("change", atiendeObraSocial);
 document.querySelector(".form-filtros").addEventListener("submit", buscarTurnos);
+document.getElementById("btn-continuar").addEventListener("click", confirmarDatos);
+document.getElementById("btn-cancelar-confirmacion").addEventListener("click", () => {
+    document.getElementById("confirmar-turno").style = "display:none";
+})
+document.getElementById("btn-confirmar-turno").addEventListener("click", () => {
+    document.getElementById("div-gral").style = "display: none";
+    document.getElementById("confirmar-turno").style = "display:none";
+    document.getElementById("aviso-confirmacion").style = "display: flex";
+})
 
 //Cuando aprieta el boton buscar turno busca los turnos coincidentes con los filtros aplicados
 function buscarTurnos(e) {
@@ -273,12 +282,12 @@ function chequearTurnos(turnos) {
 
 //Muestra los turnos que cumplen con los filtros
 function mostrarTurnos(turnos) {
-    let div = document.querySelector(".div-listado-turnos");
-    let encontro = false;
-    div.innerHTML = "<h1>Turnos Disponibles</h1>"
+    let div = document.querySelector(".listado-turnos");
+
+    div.innerHTML = "";
     console.log(turnos);
     if(turnos.length > 0){
-        encontro = true;
+
         turnos.forEach(t => {
             div.innerHTML += "<div class='turno'>"+
             "<p>"+"Turno el dia " + t.dia + " a las " +t.hora+"</p>"+
@@ -287,17 +296,28 @@ function mostrarTurnos(turnos) {
         });
     }
     
-    if(encontro){
-        let divTurnos = document.querySelectorAll(".turnoElegido");
-        divTurnos.forEach(t => {
-            t.addEventListener("click", confirmarDatos);
-        });
-    }
 }
 
 //Obtiene los datos del turno y muestra para reconfirmar
-function confirmarDatos(e) {
-    let idTurno = e.srcElement.dataset.role;
-    let infoTurno = turnos.find(t => t.id == idTurno);
-    console.log(infoTurno);
+function confirmarDatos() {
+    
+    let turnoSeleccionado = document.querySelector('input[name=turnoLibre]:checked');
+    
+    if(turnoSeleccionado != null) {
+        let turno = turnos.find(t => t.id == turnoSeleccionado.dataset.role); 
+        let paciente = document.getElementById("input-dniPaciente");
+        let obraSociale = document.getElementById("select-obrasSociales").value;
+        let idMedico = document.getElementById("select-medicos").value;
+        let medico = medicos.find(m => m.nombre == idMedico);
+
+        document.getElementById("confirmar-turno").style = "display: flex";
+        document.getElementById("turnoAConfirmar").innerHTML =  "<h4>Paciente: " + paciente.value + "</h4>" +
+        "<p> Turno el dia " + turno.dia + " a las " +turno.hora + "</p>";
+        if(medico.obraSocial.indexOf(obraSociale) < 0 || obraSociale == "sinObra") {
+            document.getElementById("turnoAConfirmar").innerHTML += "Cobro diferencial: $" + medico.cobroDiferencial;
+        } 
+    } else {
+        alert("Debes seleccionar un turno");
+    }
+    
 }
