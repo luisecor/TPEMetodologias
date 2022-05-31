@@ -24,7 +24,7 @@ function login(e){
         Toast.fire({
             icon:   'success',
             title: 'Ingresando al sistema',
-            willClose:() =>  {window.location.pathname = "/sacarTurno.html"}
+            willClose:() =>  {window.location.pathname = "/sacarTurno/sacarTurno.html"}
         })
         
     } else
