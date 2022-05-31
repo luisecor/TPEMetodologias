@@ -69,10 +69,6 @@ body {
 .turno {
     display: flex;
     justify-content: space-evenly;
-<<<<<<< HEAD
-=======
-    align-items: center;
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
 }
 
 .turnoAConfirmar {
@@ -80,11 +76,4 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
-=======
-}
-
-.pTurno {
-    margin-bottom: 0;
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
 }

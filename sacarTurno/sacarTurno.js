@@ -57,11 +57,7 @@ let turnos = [
     {
         id: 4,
         idMedico: 2,
-<<<<<<< HEAD
         dia: "17/06/2022",
-=======
-        dia: "18/06/2022",
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
         hora: "16:00",
         rango: "tarde",
     },
@@ -86,11 +82,7 @@ let turnos = [
         id: 7,
         idMedico: 4,
         dia: "19/06/2022",
-<<<<<<< HEAD
         hora: "11:00",
-=======
-        hora: "10:00",
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
         rango: "mañana",
     },
 
@@ -98,11 +90,7 @@ let turnos = [
         id: 8,
         idMedico: 4,
         dia: "19/06/2022",
-<<<<<<< HEAD
         hora: "10:00",
-=======
-        hora: "11:00",
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
         rango: "mañana",
     }
 ]
@@ -197,7 +185,6 @@ document.getElementById("select-especialidad").addEventListener("change", buscar
 document.getElementById("select-medicos").addEventListener("change", atiendeObraSocial);
 document.getElementById("select-obrasSociales").addEventListener("change", atiendeObraSocial);
 document.querySelector(".form-filtros").addEventListener("submit", buscarTurnos);
-<<<<<<< HEAD
 document.getElementById("btn-continuar").addEventListener("click", confirmarDatos);
 document.getElementById("btn-cancelar-confirmacion").addEventListener("click", () => {
     document.getElementById("confirmar-turno").style = "display:none";
@@ -208,28 +195,6 @@ document.getElementById("btn-confirmar-turno").addEventListener("click", () => {
     document.getElementById("aviso-confirmacion").style = "display: flex";
 })
 
-=======
-function reload() {
-    location.reload();
-    console.log("asd")
-}
-
-document.getElementById("btn-continuar").addEventListener("click", confirmarDatos);
-document.getElementById("btn-cancelar-confirmacion").addEventListener("click", () => {
-    document.getElementById("confirmar-turno").style = "display:none";
-})
-document.getElementById("btn-confirmar-turno").addEventListener("click", () => {
-    //document.getElementById("div-gral").style = "display: none";
-    document.getElementById("turnoAConfirmar").innerHTML = "<p>TURNO CONFIRMADO</p>";
-    document.getElementById("btn-confirmar-turno").style = "display: none"
-    document.getElementById("btn-cancelar-confirmacion").className += ' btnVolver';
-    document.getElementById("btn-cancelar-confirmacion").innerHTML = 'VOLVER';
-    document.querySelector(".btnVolver").addEventListener("click", reload);
-    //document.getElementById("confirmar-turno").style = "display:none";
-    //document.getElementById("aviso-confirmacion").style = "display: flex";
-})
-
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
 //Cuando aprieta el boton buscar turno busca los turnos coincidentes con los filtros aplicados
 function buscarTurnos(e) {
     e.preventDefault();
@@ -325,11 +290,7 @@ function mostrarTurnos(turnos) {
 
         turnos.forEach(t => {
             div.innerHTML += "<div class='turno'>"+
-<<<<<<< HEAD
             "<p>"+"Turno el dia " + t.dia + " a las " +t.hora+"</p>"+
-=======
-            "<p class='pTurno'>"+"Turno el dia " + t.dia + " a las " +t.hora+"</p>"+
->>>>>>> 6d4e0ed27fc9562cbe2d34e8ed71bc740927c456
             "<input data-role='"+t.id+"'name='turnoLibre' class='turnoElegido' type='radio'>"+
             "</div>";
         });
