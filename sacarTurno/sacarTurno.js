@@ -185,14 +185,24 @@ document.getElementById("select-especialidad").addEventListener("change", buscar
 document.getElementById("select-medicos").addEventListener("change", atiendeObraSocial);
 document.getElementById("select-obrasSociales").addEventListener("change", atiendeObraSocial);
 document.querySelector(".form-filtros").addEventListener("submit", buscarTurnos);
+function reload() {
+    location.reload();
+    console.log("asd")
+}
+
 document.getElementById("btn-continuar").addEventListener("click", confirmarDatos);
 document.getElementById("btn-cancelar-confirmacion").addEventListener("click", () => {
     document.getElementById("confirmar-turno").style = "display:none";
 })
 document.getElementById("btn-confirmar-turno").addEventListener("click", () => {
-    document.getElementById("div-gral").style = "display: none";
-    document.getElementById("confirmar-turno").style = "display:none";
-    document.getElementById("aviso-confirmacion").style = "display: flex";
+    //document.getElementById("div-gral").style = "display: none";
+    document.getElementById("turnoAConfirmar").innerHTML = "<p>TURNO CONFIRMADO</p>";
+    document.getElementById("btn-confirmar-turno").style = "display: none"
+    document.getElementById("btn-cancelar-confirmacion").className += ' btnVolver';
+    document.getElementById("btn-cancelar-confirmacion").innerHTML = 'VOLVER';
+    document.querySelector(".btnVolver").addEventListener("click", reload);
+    //document.getElementById("confirmar-turno").style = "display:none";
+    //document.getElementById("aviso-confirmacion").style = "display: flex";
 })
 
 //Cuando aprieta el boton buscar turno busca los turnos coincidentes con los filtros aplicados
