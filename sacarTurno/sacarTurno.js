@@ -2,7 +2,7 @@ let medicos = [
     {
         id: 1,
         nombre: "Braulio Ponce",
-        especialidad: "Traumatologo",
+        especialidad: "Kinesiologo",
         obraSocial: ["Ioma", "Mutual Federada"],
         cobroDiferencial: 500,
     },
@@ -23,7 +23,7 @@ let medicos = [
     {
         id: 4,
         nombre: "Marcos Rojo",
-        especialidad: "Kinesiologo",
+        especialidad: "Traumatologo",
         obraSocial: ["Ioma"],
         cobroDiferencial: 1000,
     },
