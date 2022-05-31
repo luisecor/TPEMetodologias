@@ -9,12 +9,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="div-gral">
+    <div class="div-gral" id="div-gral">
         <form class="form-filtros was-validated">
 
             <div class="mb-3">
-                <label class="form-label">DNI PACIENTE</label>
-                <input type="number" class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></input>
+                <label class="form-label">DNI Paciente</label>
+                <input type="number" class="form-control is-invalid" id="input-dniPaciente" placeholder="Ingrese DNI del paciente" required></input>
             </div>
             <div class="mb-3">
                 <label class="form-label">Especialidad</label>
@@ -38,47 +38,57 @@
             
             <div class="mb-3">
                 <label class="form-label">Rango de fechas</label>
-                <input type="date" name="" id="" value="2022-08-02">
-                <input type="date" name="" id="">
+                <div style="display: flex;">
+                    <input type="date" name="" id="fechaInicial">
+                    <input type="date" name="" id="fechaFinal">
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Mañana o tarde</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="" name="rangoDia" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Mañana
-                    </label>
+                <div style="display: flex;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="mañana" name="rangoDia" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault" style="color: black">
+                            Mañana
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="tarde" name="rangoDia" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked" style="color: black">
+                            Tarde
+                        </label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="" name="rangoDia" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Tarde
-                    </label>
-                </div>
+                
             </div>
             <p id="avisoDiferencial"></p>
             <button type="submit" class="btn btn-info">Buscar Turno</button>
         </form>
+
         <div class="div-listado-turnos">
-            <h1>Turnos Disponibles</h1>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
+            <h3>Turnos Disponibles</h3>
+            <div class="listado-turnos">
+                <p>No has buscado ningun turno</p>
             </div>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
-            <div class="turno">
-                <p>27/05/2022 a las 16:00</p>
-                <input name="asd" type="radio">
-            </div>
+            <button type="button" id="btn-continuar" class="btn btn-info">
+                Continuar
+              </button>
         </div>
     </div>
+
+    <div id="confirmar-turno" class="div-confirmar-turno" style="display: none">
+        <div class="turnoAConfirmar" id="turnoAConfirmar"></div>
+        <div>
+            <button class="btn btn-info" id="btn-confirmar-turno">Confirmar</button>
+            <button class="btn btn-danger" id="btn-cancelar-confirmacion">Cancelar</button>
+        </div>
+    </div>
+
+    <div class="aviso-confirmacion" id="aviso-confirmacion" style="display: none;">
+        <img src="confirmacion.svg" alt="">
+        <h2>¡Turno Confirmado!</h2>
+    </div>
+
     <script src="sacarTurno.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

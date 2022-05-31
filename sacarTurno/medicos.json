@@ -1,0 +1,31 @@
+{ "medicos": [
+    {
+        "id": 1,
+        "nombre": "Braulio Ponce",
+        "especialidad": "Traumatologo",
+        "obraSocial": ["Ioma", "Mutual Federada"],
+        "cobroDiferencial": 500
+    },
+    {
+        "id": 2,
+        "nombre": "Agustin Jaureguiberry",
+        "especialidad": "Medico Clinico",
+        "obraSocial": [],
+        "cobroDiferencial": 100
+    },
+    {
+        "id": 3,
+        "nombre": "Carlos Izquierdos",
+        "especialidad": "Otorrinolaringolo",
+        "obraSocial": ["Osde"],
+        "cobroDiferencial": 300
+    },
+    {
+        "id": 4,
+        "nombre": "Marcos Rojo",
+        "especialidad": "Kinesiologo",
+        "obraSocial": ["Ioma"],
+        "cobroDiferencial": 1000
+    }
+]
+}
