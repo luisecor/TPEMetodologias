@@ -24,7 +24,7 @@ function login(e){
         Toast.fire({
             icon:   'success',
             title: 'Ingresando al sistema',
-            willClose:() =>  {window.location.pathname = "/menu_secretaria.html"}
+            willClose:() =>  {window.location.pathname = "/TPEMetodologias/menu_secretaria.html"}
         })
         
     } else
