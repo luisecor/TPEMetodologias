@@ -19,24 +19,33 @@
 
     <div class="div-gral align-items-center">
         <div class="menuIngreso ">
-            <div class="row">
-                <div class="botonMenu">
-                    <a class="col-8  offset-2 btn btn-info" id="soyPaciente" href="pasiente.html">Soy Paciente</a>
+        
+            <form id="formLogin" action="login" class="form-ingresos col-8 offset-2">
+                <div class="mb-3">
+                  <label for="userEmail" class="form-label">Email address</label>
+                  <input required name="userEmail"  type="email" class="form-control" id="userEmail" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">Ingrese su email registrado.</div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="botonMenu">
-                    <a class="col-8  offset-2 btn btn-info" href="personal.html">Soy Personal</a>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input required name="password" type="password" class="form-control" id="password">
                 </div>
-            </div>
+                
+                <button type="submit" class="btn btn btn-info">Submit</button>
+              </form>
         </div>
+
+        
               
 
        
     </div>
+
+  
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="login.js"></script>
     
+    <script src="login.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
