@@ -57,7 +57,7 @@ let turnos = [
     {
         id: 4,
         idMedico: 2,
-        dia: "17/06/2022",
+        dia: "18/06/2022",
         hora: "16:00",
         rango: "tarde",
     },
@@ -82,7 +82,7 @@ let turnos = [
         id: 7,
         idMedico: 4,
         dia: "19/06/2022",
-        hora: "11:00",
+        hora: "10:00",
         rango: "mañana",
     },
 
@@ -90,7 +90,7 @@ let turnos = [
         id: 8,
         idMedico: 4,
         dia: "19/06/2022",
-        hora: "10:00",
+        hora: "11:00",
         rango: "mañana",
     }
 ]
