@@ -290,7 +290,7 @@ function mostrarTurnos(turnos) {
 
         turnos.forEach(t => {
             div.innerHTML += "<div class='turno'>"+
-            "<p>"+"Turno el dia " + t.dia + " a las " +t.hora+"</p>"+
+            "<p class='turnoIndividual'>"+"Turno el dia " + t.dia + " a las " +t.hora+"</p>"+
             "<input data-role='"+t.id+"'name='turnoLibre' class='turnoElegido' type='radio'>"+
             "</div>";
         });
