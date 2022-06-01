@@ -20,7 +20,8 @@ function login(e){
     let email = formData.get('userEmail');
     let pass = formData.get('password');
 
-    if (usuarios.find(user => (user.userEmail == email && user.password == pass))) {
+    if (usuarios.find(user => (user.userEmail == email && user.password == pass))) { 
+        //Si la contraseña y usario son correctos ingresa al sistema
         Toast.fire({
             icon:   'success',
             title: 'Ingresando al sistema',
@@ -28,6 +29,7 @@ function login(e){
         })
         
     } else
+    //Si alguno de los parametros es incorrecto da aviso
     Toast.fire({
         icon:   'error',
         title: 'Usuario o contraseña erroneos'
@@ -41,6 +43,17 @@ let anchorPaciente = document.querySelector("#soyPaciente");
 
 if (anchorPaciente)
 anchorPaciente.addEventListener('click', (e) =>{
+    e.preventDefault();
+    Toast.fire({
+        icon:   'warning',
+        title:  'En construccion'
+    })
+})
+
+let sesion = document.querySelector("#cerrarSesion");
+
+if (sesion)
+sesion.addEventListener('click', (e) =>{
     e.preventDefault();
     Toast.fire({
         icon:   'warning',
