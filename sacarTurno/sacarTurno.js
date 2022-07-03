@@ -180,20 +180,53 @@ function agregarDiasAFecha(fecha, dias){
 
 modificarRangoFecha();
 
+let turnoASacar = {
+    turno: "",
+    paciente: "", 
+    medico: "",
+};
 
 document.getElementById("select-especialidad").addEventListener("change", buscarMedicos);
 document.getElementById("select-medicos").addEventListener("change", atiendeObraSocial);
 document.getElementById("select-obrasSociales").addEventListener("change", atiendeObraSocial);
 document.querySelector(".form-filtros").addEventListener("submit", buscarTurnos);
 document.getElementById("btn-continuar").addEventListener("click", confirmarDatos);
+
 document.getElementById("btn-cancelar-confirmacion").addEventListener("click", () => {
     document.getElementById("confirmar-turno").style = "display:none";
 })
+
 document.getElementById("btn-confirmar-turno").addEventListener("click", () => {
     document.getElementById("div-gral").style = "display: none";
+    console.log(turnoASacar);
+    guardarTurno(turnoASacar);
     document.getElementById("confirmar-turno").style = "display:none";
-    document.getElementById("aviso-confirmacion").style = "display: flex";
+    alert("turno reservado");
+    /* document.getElementById("aviso-confirmacion").style = "display: flex"; */
 })
+
+const guardarTurno = (turnoASacar) => {
+    let turnosReservados = getItems();
+    console.log('Turnos:' + turnosReservados);
+    if(turnosReservados){
+        turnosReservados.push(turnoASacar);
+        setItem(turnosReservados)
+    }
+}
+
+const setItem = (item) => {
+    console.log('Guardando', item);
+    localStorage.setItem('turnos', JSON.stringify(item));
+}
+
+let turnosYaReservados = [];
+setItem(turnosYaReservados);
+
+const getItems = () => {
+    const item = localStorage.getItem('turnos');
+    console.log('Obteniendo', item);
+    return JSON.parse(item);
+}
 
 //Cuando aprieta el boton buscar turno busca los turnos coincidentes con los filtros aplicados
 function buscarTurnos(e) {
@@ -285,7 +318,6 @@ function mostrarTurnos(turnos) {
     let div = document.querySelector(".listado-turnos");
 
     div.innerHTML = "";
-    console.log(turnos);
     if(turnos.length > 0){
 
         turnos.forEach(t => {
@@ -309,6 +341,10 @@ function confirmarDatos() {
         let obraSociale = document.getElementById("select-obrasSociales").value;
         let idMedico = document.getElementById("select-medicos").value;
         let medico = medicos.find(m => m.nombre == idMedico);
+
+        turnoASacar.medico = medico.nombre;
+        turnoASacar.paciente = paciente.value;
+        turnoASacar.turno = turno;
 
         document.getElementById("confirmar-turno").style = "display: flex";
         document.getElementById("turnoAConfirmar").innerHTML =  "<h4>Paciente: " + paciente.value + "</h4>" +

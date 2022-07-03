@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mostrarTurnos.css">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Sacar Turno</title>
+</head>
+<body>
+    <div class="div-gral" id="div-gral">
+        <form class="form-filtros was-validated">
+            <div class="mb-3">
+                <label class="form-label">Medico</label>
+                <select class="form-select" required aria-label="select example" id="select-medicos">
+                    <option value="">Seleccione Medico<mat-slider tickInterval="auto"></mat-slider></option>
+                </select>
+            </div>           
+            
+            <div class="mb-3">
+                <label class="form-label">Rango de fechas</label>
+                <div class="conteiner-fechas" style="display: flex;">
+                    <div>
+                        <label for="">Fecha Inicial</label>
+                        <input type="date" name="" id="fechaInicial">
+                    </div>
+                    <div>
+                        <label for="">Fecha Final</label>
+                        <input type="date" name="" id="fechaFinal">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mañana o tarde</label>
+                <div style="display: flex;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="mañana" name="rangoDia" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault" style="color: black">
+                            Mañana
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="tarde" name="rangoDia" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked" style="color: black">
+                            Tarde
+                        </label>
+                    </div>
+                </div>
+                
+            </div>
+            <p id="avisoDiferencial"></p>
+            <button type="submit" class="btn btn-info">Buscar Turno</button>
+        </form>
+
+        <div class="div-listado-turnos">
+            <h3>Turnos Reservados</h3>
+            <div class="listado-turnos">
+                <p>No hay turnos reservados</p>
+            </div>
+            <button type="button" id="btn-continuar" class="btn btn-info">
+                Continuar
+              </button>
+        </div>
+    </div>
+
+    <div id="confirmar-turno" class="div-confirmar-turno" style="display: none">
+        <div class="turnoAConfirmar" id="turnoAConfirmar"></div>
+        <div>
+            <button class="btn btn-info" id="btn-confirmar-turno">Confirmar</button>
+            <button class="btn btn-danger" id="btn-cancelar-confirmacion">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- <div class="aviso-confirmacion" id="aviso-confirmacion" style="display: none;">
+        <img src="confirmacion.svg" alt="">
+        <h2>¡Turno Confirmado!</h2>
+    </div> -->
+
+    <script src="mostrarTurnos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
