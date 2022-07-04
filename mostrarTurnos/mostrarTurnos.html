@@ -11,11 +11,12 @@
 </head>
 <body>
     <div class="div-gral" id="div-gral">
-        <form class="form-filtros was-validated">
+        <form class="form-filtros was-validated" id="form-buscar">
             <div class="mb-3">
                 <label class="form-label">Medico</label>
                 <select class="form-select" required aria-label="select example" id="select-medicos">
                     <option value="">Seleccione Medico<mat-slider tickInterval="auto"></mat-slider></option>
+                    <option value="">Cualquiera</option>
                 </select>
             </div>           
             
@@ -28,7 +29,7 @@
                     </div>
                     <div>
                         <label for="">Fecha Final</label>
-                        <input type="date" name="" id="fechaFinal">
+                        <input type="date" name="" id="fechaFinal" value="">
                     </div>
                 </div>
             </div>
@@ -51,7 +52,7 @@
                 
             </div>
             <p id="avisoDiferencial"></p>
-            <button type="submit" class="btn btn-info">Buscar Turno</button>
+            <button type="submit" class="btn btn-info" onclick="filtrarTurnos()">Buscar Turno</button>
         </form>
 
         <div class="div-listado-turnos">

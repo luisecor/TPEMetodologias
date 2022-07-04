@@ -301,6 +301,7 @@ function chequearTurnos(turnos) {
     
     turnos.forEach(t => {
         let fechaTurnoObject = t.dia.split("/");
+        console.log(fechaTurnoObject);
         let fechaTurno = new Date(fechaTurnoObject[2],fechaTurnoObject[1] - 1,fechaTurnoObject[0]);
         let fechaMinima = new Date(fInicial);
         let fechaMaxima = new Date(fFinal);
