@@ -25,7 +25,7 @@ function login(e){
         Toast.fire({
             icon:   'success',
             title: 'Ingresando al sistema',
-            willClose:() =>  {window.location.href  = "../menu_secretaria.html"} // para redirigir
+            willClose:() =>  {window.location.href  = "TPEMetodologias/menu_secretaria.html"} // para redirigir
         })
         
     } else
