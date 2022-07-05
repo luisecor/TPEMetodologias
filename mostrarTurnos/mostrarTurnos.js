@@ -1,13 +1,14 @@
 document.querySelector(".form-filtros").addEventListener("submit", filtrarTurnos);
 
-
-
 const getItems = () => {
-    const item = turnos;
+    const item = localStorage.getItem('turnos');
     console.log('Obteniendo', item);
-    return (item);
+    return JSON.parse(item);
 }
 
+let turnos = getItems();
+console.log(turnos)
+mostrarTurnos(turnos);
 
 function filtrarTurnos(event) {
     event.preventDefault();
@@ -60,7 +61,7 @@ function mostrarTurnos(turnos) {
 
         turnos.forEach(t => {
             div.innerHTML += "<div class='turno'>"+
-            "<p class='turnoIndividual'>"+"Turno el dia " + t.turno.dia + " a las " +t.turno.hora+
+            "<p class='turnoIndividual'>"+"- Turno el dia " + t.turno.dia + " a las " +t.turno.hora+
             " con el medico " + t.medico + " con paciente DNI N°: " +t.paciente+"</p>"+
             "</div>";
             //"<input data-role='"+t.id+"'name='turnoLibre' class='turnoElegido' type='radio'>"+
@@ -99,111 +100,5 @@ let medicos = [
         especialidad: "Traumatologo",
         obraSocial: ["Ioma"],
         cobroDiferencial: 1000,
-    },
-]
-
-let turnos = [
-    {
-        id: 1,
-        idMedico: 1,
-        dia: "17/11/2022",
-        hora: "15:00",
-        rango: "tarde",
-    }, 
-
-    {
-        id: 2,
-        idMedico: 1,
-        dia: "17/06/2022",
-        hora: "16:00",
-        rango: "tarde",
-    },
-
-    {
-        id: 3,
-        idMedico: 2,
-        dia: "17/06/2022",
-        hora: "18:00",
-        rango: "tarde",
-    },
-
-    {
-        id: 4,
-        idMedico: 2,
-        dia: "17/06/2022",
-        hora: "16:00",
-        rango: "tarde",
-    },
-
-    {
-        id: 5,
-        idMedico: 3,
-        dia: "18/06/2022",
-        hora: "09:00",
-        rango: "mañana",
-    },
-
-    {
-        id: 6,
-        idMedico: 3,
-        dia: "20/06/2022",
-        hora: "08:00",
-        rango: "mañana",
-    },
-
-    {
-        id: 7,
-        idMedico: 4,
-        dia: "19/06/2022",
-        hora: "11:00",
-        rango: "mañana",
-    },
-
-    {
-        id: 8,
-        idMedico: 4,
-        dia: "19/06/2022",
-        hora: "10:00",
-        rango: "mañana",
-    },
-
-    {
-        id: 9,
-        idMedico: 2,
-        dia: "19/06/2022",
-        hora: "11:00",
-        rango: "mañana",
-    },
-
-    {
-        id: 10,
-        idMedico: 1,
-        dia: "19/06/2022",
-        hora: "10:00",
-        rango: "mañana",
-    },
-
-    {
-        id: 11,
-        idMedico: 4,
-        dia: "19/06/2022",
-        hora: "10:00",
-        rango: "tarde",
-    },
-
-    {
-        id: 12,
-        idMedico: 2,
-        dia: "19/06/2022",
-        hora: "11:00",
-        rango: "tarde",
-    },
-
-    {
-        id: 13,
-        idMedico: 1,
-        dia: "19/06/2022",
-        hora: "10:00",
-        rango: "tarde",
     },
 ]

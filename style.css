@@ -124,3 +124,9 @@ body {
     margin-top: 150px !important;
 }
 
+.volverAlMenuAnterior {
+    color: white;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}

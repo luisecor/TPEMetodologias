@@ -25,7 +25,7 @@ function login(e){
         Toast.fire({
             icon:   'success',
             title: 'Ingresando al sistema',
-            willClose:() =>  {window.location.href  = "/TPEMetodologias/menu_secretaria.html"} // para redirigir
+            willClose:() =>  {window.location.href  = "../menu_secretaria.html"} // para redirigir
         })
         
     } else
@@ -50,7 +50,7 @@ anchorPaciente.addEventListener('click', (e) =>{
     })
 })
 
-let sesion = document.querySelector("#cerrarSesion");
+/* let sesion = document.querySelector("#cerrarSesion");
 
 if (sesion)
 sesion.addEventListener('click', (e) =>{
@@ -59,7 +59,7 @@ sesion.addEventListener('click', (e) =>{
         icon:   'warning',
         title:  'En construccion'
     })
-})
+}) */
 
 
 

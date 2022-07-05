@@ -33,7 +33,7 @@ let turnos = [
     {
         id: 1,
         idMedico: 1,
-        dia: "17/11/2022",
+        dia: "17/07/2022",
         hora: "15:00",
         rango: "tarde",
     }, 
@@ -41,7 +41,7 @@ let turnos = [
     {
         id: 2,
         idMedico: 1,
-        dia: "17/06/2022",
+        dia: "27/07/2022",
         hora: "16:00",
         rango: "tarde",
     },
@@ -49,7 +49,7 @@ let turnos = [
     {
         id: 3,
         idMedico: 2,
-        dia: "17/06/2022",
+        dia: "17/07/2022",
         hora: "18:00",
         rango: "tarde",
     },
@@ -57,7 +57,7 @@ let turnos = [
     {
         id: 4,
         idMedico: 2,
-        dia: "17/06/2022",
+        dia: "20/07/2022",
         hora: "16:00",
         rango: "tarde",
     },
@@ -65,7 +65,7 @@ let turnos = [
     {
         id: 5,
         idMedico: 3,
-        dia: "18/06/2022",
+        dia: "18/07/2022",
         hora: "09:00",
         rango: "mañana",
     },
@@ -73,7 +73,7 @@ let turnos = [
     {
         id: 6,
         idMedico: 3,
-        dia: "20/06/2022",
+        dia: "20/07/2022",
         hora: "08:00",
         rango: "mañana",
     },
@@ -81,7 +81,7 @@ let turnos = [
     {
         id: 7,
         idMedico: 4,
-        dia: "19/06/2022",
+        dia: "19/07/2022",
         hora: "11:00",
         rango: "mañana",
     },
@@ -89,7 +89,7 @@ let turnos = [
     {
         id: 8,
         idMedico: 4,
-        dia: "19/06/2022",
+        dia: "15/07/2022",
         hora: "10:00",
         rango: "mañana",
     }
@@ -197,36 +197,45 @@ document.getElementById("btn-cancelar-confirmacion").addEventListener("click", (
 })
 
 document.getElementById("btn-confirmar-turno").addEventListener("click", () => {
-    document.getElementById("div-gral").style = "display: none";
-    console.log(turnoASacar);
     guardarTurno(turnoASacar);
     document.getElementById("confirmar-turno").style = "display:none";
+    let idTurno = turnoASacar.turno.id;
+    let a = document.querySelectorAll(".turno");
+    a.forEach(e => {
+        if(e.classList.contains(idTurno)) {
+            e.style = "display:none";
+        }
+    });
     alert("turno reservado");
-    /* document.getElementById("aviso-confirmacion").style = "display: flex"; */
 })
 
 const guardarTurno = (turnoASacar) => {
     let turnosReservados = getItems();
-    console.log('Turnos:' + turnosReservados);
-    if(turnosReservados){
+ 
+     if(turnosReservados){
         turnosReservados.push(turnoASacar);
         setItem(turnosReservados)
     }
 }
 
+//Agrega un turno a LS
 const setItem = (item) => {
-    console.log('Guardando', item);
     localStorage.setItem('turnos', JSON.stringify(item));
 }
 
-let turnosYaReservados = [];
-setItem(turnosYaReservados);
-
+//Agarra los turnos reservados del LS
 const getItems = () => {
     const item = localStorage.getItem('turnos');
-    console.log('Obteniendo', item);
     return JSON.parse(item);
 }
+
+//Inicializa el arreglo de turnosReservados
+let turnosYaReservados = getItems();
+if(turnosYaReservados == null ){
+    console.log("nulll")
+    turnosYaReservados = [];
+    setItem(turnosYaReservados);
+} 
 
 //Cuando aprieta el boton buscar turno busca los turnos coincidentes con los filtros aplicados
 function buscarTurnos(e) {
@@ -241,15 +250,35 @@ function buscarTurnos(e) {
     let momentoDia = document.querySelector('input[name="rangoDia"]:checked').value
     
     let infoCompletaMedico = medicos.find(m => m.nombre == med);
+
     turnos.map( function(t) {
         if(t.idMedico == infoCompletaMedico.id){
-            turnosDelMedico.push(t);
+            if(!estaReservado(t.id)){
+                turnosDelMedico.push(t);
+            }
         }
     } );
     
-    //console.log("buscando turnos del medico: " + med + " entre la fecha "+fInicial+ " y la fecha " + fFinal + " en el turno " +momentoDia);
-    chequearTurnos(turnosDelMedico);
+    if (turnosDelMedico.length > 0) {
+        chequearTurnos(turnosDelMedico);
+    } else {
+        alert("No hay turnos disponibles para los filtros aplicados, pruebe con otros");
+    }
     //mostrarTurnos(turnos) 
+}
+
+//Funcion para no mostrar los turnos ya reservados como disponibles
+function estaReservado(turno){
+    let turnosReservados = getItems();
+    let reservado = false
+    if(turnosReservados.length > 0){
+        turnosReservados.forEach(e => {
+            if(e.turno.id == turno){
+                reservado = true;
+            }
+        });
+    }
+    return reservado;
 }
 
 //Busca los medicos segun la especialidad seleccionada 
@@ -301,7 +330,6 @@ function chequearTurnos(turnos) {
     
     turnos.forEach(t => {
         let fechaTurnoObject = t.dia.split("/");
-        console.log(fechaTurnoObject);
         let fechaTurno = new Date(fechaTurnoObject[2],fechaTurnoObject[1] - 1,fechaTurnoObject[0]);
         let fechaMinima = new Date(fInicial);
         let fechaMaxima = new Date(fFinal);
@@ -322,7 +350,7 @@ function mostrarTurnos(turnos) {
     if(turnos.length > 0){
 
         turnos.forEach(t => {
-            div.innerHTML += "<div class='turno'>"+
+            div.innerHTML += "<div class='turno "+t.id+ "'>"+
             "<p class='turnoIndividual'>"+"Turno el dia " + t.dia + " a las " +t.hora+"</p>"+
             "<input data-role='"+t.id+"'name='turnoLibre' class='turnoElegido' type='radio'>"+
             "</div>";
