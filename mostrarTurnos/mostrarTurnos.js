@@ -2,12 +2,12 @@ document.querySelector(".form-filtros").addEventListener("submit", filtrarTurnos
 
 const getItems = () => {
     const item = localStorage.getItem('turnos');
-    console.log('Obteniendo', item);
+    //console.log('Obteniendo', item);
     return JSON.parse(item);
 }
 
 let turnos = getItems();
-console.log(turnos)
+//console.log(turnos)
 mostrarTurnos(turnos);
 
 function filtrarTurnos(event) {
@@ -28,10 +28,11 @@ function filtrarTurnos(event) {
     console.log(medico.nombre);
 
         
-    
+
     if(turnos.length < 1) {
         console.log("No existen turnos");
     } else {
+        console.log("existen turnos");
         turnos.forEach(t => {
             let fechaTurnoObject = t.turno.dia.split("/");
             let fechaTurno = new Date(fechaTurnoObject[2],fechaTurnoObject[1] - 1,fechaTurnoObject[0]);
@@ -45,7 +46,7 @@ function filtrarTurnos(event) {
         });
     }
 
-    
+    console.log(turnosCumplen)
     mostrarTurnos(turnosCumplen);
 }
 
