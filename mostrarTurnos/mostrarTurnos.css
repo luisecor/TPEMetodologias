@@ -5,6 +5,7 @@ body {
 .div-gral {
     display: flex;
     flex-direction: row;
+    align-items: center;
     background-color: rgba(112, 110, 110, 0.911);
     border-radius: 20px;
     width: 70%;
@@ -38,6 +39,7 @@ body {
     width: 80%;
     border-radius: 10px;
     color: white;
+    overflow-y: scroll;
 }
 
 .div-confirmar-turno {

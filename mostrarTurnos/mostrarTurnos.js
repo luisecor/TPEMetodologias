@@ -20,15 +20,12 @@ function filtrarTurnos(event) {
     //rango de fechas
     let fInicial = document.getElementById("fechaInicial").value;
     let fFinal = document.getElementById("fechaFinal").value;
-    
     //mañana o tarde
     let momentoDia = document.querySelector('input[name="rangoDia"]:checked').value
-
     //medico seleccionado
-
     let idMedico = document.querySelector("#select-medicos").value;
-
-    console.log(idMedico);
+    let medico = medicos.find(m => m.id == idMedico);
+    console.log(medico.nombre);
 
         
     
@@ -41,7 +38,7 @@ function filtrarTurnos(event) {
             let fechaMinima = new Date(fInicial);
             let fechaMaxima = new Date(fFinal);
 
-            if( (t.turno.rango == momentoDia) && 
+            if( (t.turno.rango == momentoDia) && (t.medico == medico.nombre) &&
                     (fechaTurno.getTime() > fechaMinima.getTime() && fechaTurno.getTime() < fechaMaxima.getTime())) {
                 turnosCumplen.push(t);
             }
