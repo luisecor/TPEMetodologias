@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="mostrarTurnos.css">
     <link rel="stylesheet" href="../style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Sacar Turno</title>
+    <title>Mostrar Turno</title>
 </head>
 <body>
     <div class="div-gral" id="div-gral">
         <form class="form-filtros was-validated" id="form-buscar">
             <div class="mb-3">
                 <label class="form-label">Medico</label>
-                <select class="form-select" required aria-label="select example" id="select-medicos">
+                <select required class="form-select" required aria-label="select example" id="select-medicos" > 
                     <option value="">Seleccione Medico<mat-slider tickInterval="auto"></mat-slider></option>
-                    <option value="">Cualquiera</option>
+                    <option value="2">Agustin Jaureguiberry</option>
+                    <option value="1">Braulio Ponce</option>
+                    <option value="3">Carlos Izquierdosa</option>
+                    <option value="4">Marcos Rojo</option>
                 </select>
             </div>           
             
@@ -25,11 +28,11 @@
                 <div class="conteiner-fechas" style="display: flex;">
                     <div>
                         <label for="">Fecha Inicial</label>
-                        <input type="date" name="" id="fechaInicial">
+                        <input required type="date" name="" id="fechaInicial">
                     </div>
                     <div>
                         <label for="">Fecha Final</label>
-                        <input type="date" name="" id="fechaFinal" value="">
+                        <input required type="date" name="" id="fechaFinal" value="">
                     </div>
                 </div>
             </div>

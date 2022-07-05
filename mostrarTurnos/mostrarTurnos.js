@@ -1,12 +1,12 @@
 document.querySelector(".form-filtros").addEventListener("submit", filtrarTurnos);
 
+
+
 const getItems = () => {
-    const item = localStorage.getItem('turnos');
+    const item = turnos;
     console.log('Obteniendo', item);
-    return JSON.parse(item);
+    return (item);
 }
-
-
 
 
 function filtrarTurnos(event) {
@@ -22,6 +22,14 @@ function filtrarTurnos(event) {
     
     //mañana o tarde
     let momentoDia = document.querySelector('input[name="rangoDia"]:checked').value
+
+    //medico seleccionado
+
+    let idMedico = document.querySelector("#select-medicos").value;
+
+    console.log(idMedico);
+
+        
     
     if(turnos.length < 1) {
         console.log("No existen turnos");
@@ -62,3 +70,140 @@ function mostrarTurnos(turnos) {
     }
     
 }
+
+let medicos = [
+    {
+        id: 1,
+        nombre: "Braulio Ponce",
+        especialidad: "Kinesiologo",
+        obraSocial: ["Ioma", "Mutual Federada"],
+        cobroDiferencial: 500,
+    },
+    {
+        id: 2,
+        nombre: "Agustin Jaureguiberry",
+        especialidad: "Medico Clinico",
+        obraSocial: [],
+        cobroDiferencial: 100,
+    },
+    {
+        id: 3,
+        nombre: "Carlos Izquierdos",
+        especialidad: "Otorrinolaringolo",
+        obraSocial: ["Osde"],
+        cobroDiferencial: 300,
+    },
+    {
+        id: 4,
+        nombre: "Marcos Rojo",
+        especialidad: "Traumatologo",
+        obraSocial: ["Ioma"],
+        cobroDiferencial: 1000,
+    },
+]
+
+let turnos = [
+    {
+        id: 1,
+        idMedico: 1,
+        dia: "17/11/2022",
+        hora: "15:00",
+        rango: "tarde",
+    }, 
+
+    {
+        id: 2,
+        idMedico: 1,
+        dia: "17/06/2022",
+        hora: "16:00",
+        rango: "tarde",
+    },
+
+    {
+        id: 3,
+        idMedico: 2,
+        dia: "17/06/2022",
+        hora: "18:00",
+        rango: "tarde",
+    },
+
+    {
+        id: 4,
+        idMedico: 2,
+        dia: "17/06/2022",
+        hora: "16:00",
+        rango: "tarde",
+    },
+
+    {
+        id: 5,
+        idMedico: 3,
+        dia: "18/06/2022",
+        hora: "09:00",
+        rango: "mañana",
+    },
+
+    {
+        id: 6,
+        idMedico: 3,
+        dia: "20/06/2022",
+        hora: "08:00",
+        rango: "mañana",
+    },
+
+    {
+        id: 7,
+        idMedico: 4,
+        dia: "19/06/2022",
+        hora: "11:00",
+        rango: "mañana",
+    },
+
+    {
+        id: 8,
+        idMedico: 4,
+        dia: "19/06/2022",
+        hora: "10:00",
+        rango: "mañana",
+    },
+
+    {
+        id: 9,
+        idMedico: 2,
+        dia: "19/06/2022",
+        hora: "11:00",
+        rango: "mañana",
+    },
+
+    {
+        id: 10,
+        idMedico: 1,
+        dia: "19/06/2022",
+        hora: "10:00",
+        rango: "mañana",
+    },
+
+    {
+        id: 11,
+        idMedico: 4,
+        dia: "19/06/2022",
+        hora: "10:00",
+        rango: "tarde",
+    },
+
+    {
+        id: 12,
+        idMedico: 2,
+        dia: "19/06/2022",
+        hora: "11:00",
+        rango: "tarde",
+    },
+
+    {
+        id: 13,
+        idMedico: 1,
+        dia: "19/06/2022",
+        hora: "10:00",
+        rango: "tarde",
+    },
+]
